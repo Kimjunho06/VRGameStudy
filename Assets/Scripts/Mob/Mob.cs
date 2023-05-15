@@ -18,10 +18,9 @@ public class Mob : MonoBehaviour
     {
         OnCreated?.Invoke();
         
-        Invoke(nameof(Destroy), 3f);
     }
 
-    private void Destroy()
+    public void Destroy()
     {
         if (isDestroyed) return;
         isDestroyed = true;

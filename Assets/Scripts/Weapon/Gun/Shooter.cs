@@ -15,6 +15,13 @@ public class Shooter : MonoBehaviour
     public float shootDelay = 0.1f;
     public float maxDistance = 100f;
 
+    private Magazine magazine;
+
+    private void Awake()
+    {
+        magazine = GetComponent<Magazine>();
+    }
+
     private void Start()
     {
         Stop();
@@ -35,7 +42,14 @@ public class Shooter : MonoBehaviour
         var wfs = new WaitForSeconds(shootDelay);
         while (true)
         {
-            Shoot();
+            if (magazine.Use())
+            {
+                Shoot();
+            }
+            else
+            {
+                OnShootfalied?.Invoke();
+            }
             yield return wfs;
 
         }
@@ -45,6 +59,10 @@ public class Shooter : MonoBehaviour
     {
         if (Physics.Raycast(shootPoint.position, shootPoint.forward, out RaycastHit hitInfo, maxDistance, hittableMask)){
             Instantiate(hitEffectPrefab, hitInfo.point, Quaternion.identity);
+
+            var hitObject = hitInfo.transform.GetComponent<Hittable>();
+            hitObject?.Hit();
+
             OnShootSuccess?.Invoke(hitInfo.point);
         }
         else
