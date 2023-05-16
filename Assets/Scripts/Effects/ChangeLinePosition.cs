@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class ChangeLinePosition : MonoBehaviour
 {
-    public int index = 1;
+
+    public int index=1;
     private LineRenderer target;
     
     private void Awake()
     {
-        target = GetComponent<LineRenderer>();    
+        target = GetComponent<LineRenderer>();
     }
-
+    
     public void Call(Vector3 worldPosition)
     {
         if (target.useWorldSpace)

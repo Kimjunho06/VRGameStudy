@@ -8,7 +8,6 @@ public class ChangeEmissionIntensity : MonoBehaviour
     public float max = 3f;
 
     private Renderer target;
-
     private void Awake()
     {
         target = GetComponent<Renderer>();

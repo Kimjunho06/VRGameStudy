@@ -16,6 +16,6 @@ public class ChangeVFXColor : MonoBehaviour
     public void Call(Color color)
     {
         var main = target.main;
-        main.startColor = color;
+        main.startColor= new ParticleSystem.MinMaxGradient(color, color * Random.Range(1f - arrangeRange, 1f + arrangeRange));
     }
 }

@@ -12,8 +12,8 @@ public class PlayHapticOnInteractable : MonoBehaviour
 
     private void Awake()
     {
-        target = GetComponent<XRBaseInteractable>();
-    }
+        target = GetComponent<XRBaseInteractable>()
+;   }
 
     public void Call()
     {

@@ -5,8 +5,7 @@ using UnityEngine.Events;
 
 public class RandomColor : MonoBehaviour
 {
-    public UnityEvent<Color> OnCreate;
-
+    public UnityEvent<Color> OnCreated;
     public float hueMin = 0f;
     public float hueMax = 1f;
     public float saturationMin = 0.7f;
@@ -17,6 +16,6 @@ public class RandomColor : MonoBehaviour
     public void Call()
     {
         var color = Random.ColorHSV(hueMin, hueMax, saturationMin, saturationMax, valueMin, valueMax);
-        OnCreate?.Invoke(color);
+        OnCreated?.Invoke(color);
     }
 }

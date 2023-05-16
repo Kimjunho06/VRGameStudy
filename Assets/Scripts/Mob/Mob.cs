@@ -1,28 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class Mob : MonoBehaviour
 {
     public UnityEvent OnCreated;
     public UnityEvent OnDestroyed;
 
-
-
     public float destroyDelay = 1f;
     private bool isDestroyed = false;
+
 
     private void Start()
     {
         OnCreated?.Invoke();
-        
     }
 
+ 
     public void Destroy()
     {
-        if (isDestroyed) return;
+        if (isDestroyed)
+            return;
         isDestroyed = true;
 
         Destroy(gameObject, destroyDelay);

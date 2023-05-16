@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class ChangeAgentDestination : MonoBehaviour
 {
-    public Vector3 destination = new Vector3(-1, 2, 2);
+    public Vector3 destination=new Vector3(-3f,5f,2f);
 
     private NavMeshAgent target;
 

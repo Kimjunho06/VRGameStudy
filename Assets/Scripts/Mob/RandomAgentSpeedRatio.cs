@@ -9,7 +9,6 @@ public class RandomAgentSpeedRatio : MonoBehaviour
     public float max = 1.5f;
 
     private NavMeshAgent target;
-
     private void Awake()
     {
         target = GetComponent<NavMeshAgent>();
